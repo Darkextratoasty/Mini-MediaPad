@@ -1,7 +1,7 @@
 # Mini-MediaPad
 A small macropad featuring three keys and a rotary encoder for simple media control. 
 
-![alt text](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193240046.jpg?raw=true)
+![general image](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193240046.jpg?raw=true)
 
 ## BOM
 - [CJMCU Beetle ATmega32U4](https://www.amazon.com/Keyboard-ATMEGA32U4-Development-Arduino-Leonardo/dp/B092D15447) \(probably want to find a different board, this one is pretty obsolete\)
@@ -23,16 +23,27 @@ Optional:
 ### Printed Parts
 Print the MediaPad-Top, MediaPad-Bottom, Knob, and 3x Loweredkeycap \(if using printed keycaps\) files. Note that these files are not tolerances at all, so you will need to either adjust your slicer \(horizontal expansion in Cura\) or edit the CAD files and give the models some tolerance. Also, the keycaps are a nightmare to print, require support material, and have a rather unpleasant surface finish, I'd honestly suggest just buying keycaps. If you get everything really tuned in, the components just press fit into the case, requiring no glue, tape, or screws \(except the USB-C breakout, that requires 2x M2.5 threaded inserts and screws\).
 ### Wiring
+
+![wiring](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193336548.jpg?raw=true)
+
 The 12mm tact button acts as a reset switch for easily flashing the board. It should be connected to the GND and RES \(reset\) pins. 
+
 
 The rotary encoder's encoder pins should be connected to MI \(B3\) and MO \(B2\), with the middle pin going to GND. The encoder's button pins act like a fourth keyswitch. You may have to swap the A and B pins in the QMK firmware if the knob seems to go in the wrong direction.
 
+
 The keys are wired in a ROW2COL, 4x1 matrix, meaning each key's wiring goes from the common row pin, to the keyswitch, to the diode anode, to the key's column pin. The common row pin is A2 \(F5\) and the column pins, going from left to right top view, are key1-A0 \(F7\), key2-D9 \(B5\), key2-D10 \(B6\), and encoder button-D11 \(B7\).
+
 
 The USB-C breakout is wired to the ATmega32U4 board's USB pins. 
 
 ## Flashing the Firmware
+
+![flash button](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193525080.jpg?raw=true)
+
 Since this is a custom board that isn't supported natively by QMK, you have to either compile the firmware yourself or use the precompiled .hex file in the QMK_Firmware folder. To compile the firmware, you can copy the mini-mediapad folder into your qmk_firmware/keyboards/ directory and run "qmk compile -kb mini_mediapad -km default". I don't plan to submit this to QMK for native support. To flash, press the 12mm tact button under the knob, then use QMK Toolbox or the command line to flash the .hex file to the board.
 
 ## Results
 Once everything is built and flashed, the keys should do, left to right top view, previous track, play/pause, next track, encoder turn for volume up/down, and encoder press for mute.
+
+![finished product](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193233347.jpg?raw=true)
