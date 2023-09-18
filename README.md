@@ -1,6 +1,8 @@
 # Mini-MediaPad
 A small macropad featuring three keys and a rotary encoder for simple media control. 
 
+![alt text](https://github.com/Darkextratoasty/Mini-MediaPad/blob/main/pictures/PXL_20230915_193240046.jpg?raw=true)
+
 ## BOM
 - [CJMCU Beetle ATmega32U4](https://www.amazon.com/Keyboard-ATMEGA32U4-Development-Arduino-Leonardo/dp/B092D15447) \(probably want to find a different board, this one is pretty obsolete\)
 - [Adafruit USB-C Breakout Board](https://www.adafruit.com/product/4090)
